@@ -1,4 +1,4 @@
-baseURL = 'https://leonincs.github.io/GoClub/'
+baseURL = 'https://blockblog.top/'
 languageCode = 'zh-cn'
 title = 'GoClub'
 theme = 'hugo-book'
