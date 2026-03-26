@@ -14,12 +14,19 @@ GoClub 目前主要覆盖以下内容：
 
 - [面试真题](./docs/interview/)
 - [八股总结](./docs/baguwen/)
-- [资源荟萃](./docs/resources/)
+- 资源荟萃
 - [配套文章](./docs/companion/)
 - [技术博客](./docs/blog/)
 - [贡献者](./docs/contributors/)
 
-希望把零散的信息逐步整理成结构清晰、便于检索和复习的内容体系。
+## 快速入口
+
+- [内容导航](./docs/)
+- [面试真题](./docs/interview/)
+- [八股总结](./docs/baguwen/)
+- [配套文章](./docs/companion/)
+- [技术博客](./docs/blog/)
+- [贡献者](./docs/contributors/)
 
 ## 当前技术方案
 
