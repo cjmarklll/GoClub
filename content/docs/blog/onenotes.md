@@ -17,4 +17,4 @@ type: docs
 
 ## OneNote 笔记
 
-- [查看链接](https://github.com/LeoninCS/GoClub.git/documents/onenote/)
+- [查看链接](https://github.com/LeoninCS/GoClub/tree/main/documents/onenote)
