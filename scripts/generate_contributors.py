@@ -93,6 +93,7 @@ def merge_maintainers(maintainers, contributors):
         merged.values(),
         key=lambda item: (
             0 if item.get("pinned") else 1,
+            item.get("sort_order", float("inf")),
             -item.get("merged_prs", 0),
             item["login"].lower(),
         ),
