@@ -45,6 +45,7 @@ bookCollapseSection: false
 ### 资源荟萃
 
 - [好书分享]({{< relref "/docs/resources/好书分享.md" >}})
+- [Agent 相关网站推荐]({{< relref "/docs/resources/Agent相关网站推荐.md" >}})
 
 ### 配套文章
 
