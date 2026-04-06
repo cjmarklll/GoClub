@@ -1,0 +1,1289 @@
+/*
+  Project-level style overrides for GoClub.
+  The design language follows the local 设计.html draft:
+  warm editorial surfaces, a strong fixed sidebar, and responsive
+  knowledge-base layouts for homepage, section pages, and article pages.
+*/
+
+:root {
+  --body-background: #faf9f5;
+  --body-background-tint:
+    radial-gradient(circle at top right, rgba(255, 223, 150, 0.22), transparent 24rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0));
+  --body-font-color: #1b1c1a;
+
+  --color-link: #0d4d4b;
+  --color-visited-link: #5d3c2a;
+
+  --icon-filter: none;
+
+  --gray-100: #f4f4f0;
+  --gray-200: #dad7cf;
+  --gray-500: #6f716b;
+
+  --color-accent-default: #0d4d4b;
+  --color-accent-default-tint: rgba(13, 77, 75, 0.16);
+  --color-accent-note: #375c77;
+  --color-accent-note-tint: rgba(55, 92, 119, 0.14);
+  --color-accent-tip: #56704f;
+  --color-accent-tip-tint: rgba(86, 112, 79, 0.14);
+  --color-accent-important: #7a5b3d;
+  --color-accent-important-tint: rgba(122, 91, 61, 0.14);
+  --color-accent-warning: #aa5d36;
+  --color-accent-warning-tint: rgba(170, 93, 54, 0.16);
+  --color-accent-caution: #8f4740;
+  --color-accent-caution-tint: rgba(143, 71, 64, 0.15);
+  --color-accent-info: #375c77;
+  --color-accent-info-tint: rgba(55, 92, 119, 0.14);
+  --color-accent-success: #56704f;
+  --color-accent-success-tint: rgba(86, 112, 79, 0.14);
+  --color-accent-danger: #8f4740;
+  --color-accent-danger-tint: rgba(143, 71, 64, 0.15);
+
+  --goclub-sidebar-width: 18rem;
+  --goclub-sidebar-collapsed-width: 5.25rem;
+  --goclub-toc-width: 17rem;
+  --goclub-page-width: 54rem;
+
+  --goclub-primary: #003331;
+  --goclub-primary-soft: #004b49;
+  --goclub-secondary: #a33d23;
+  --goclub-secondary-soft: #ffdad2;
+  --goclub-tertiary: #ffdf96;
+  --goclub-tertiary-ink: #392a00;
+
+  --goclub-surface: rgba(255, 255, 255, 0.84);
+  --goclub-surface-strong: rgba(244, 244, 240, 0.9);
+  --goclub-surface-muted: rgba(233, 232, 228, 0.84);
+  --goclub-border: rgba(112, 121, 120, 0.22);
+  --goclub-border-strong: rgba(112, 121, 120, 0.34);
+  --goclub-shadow: 0 24px 60px rgba(36, 48, 46, 0.08);
+  --goclub-shadow-soft: 0 16px 38px rgba(36, 48, 46, 0.06);
+  --goclub-shadow-card: 0 18px 42px rgba(36, 48, 46, 0.08);
+  --goclub-radius-xl: 1.75rem;
+  --goclub-radius-lg: 1.15rem;
+  --goclub-radius-md: 0.9rem;
+}
+
+html {
+  scroll-padding-top: 2rem;
+}
+
+body {
+  background-attachment: fixed;
+  font-family: var(--goclub-font-body);
+}
+
+body,
+input,
+button,
+textarea,
+select {
+  font-family: var(--goclub-font-body);
+}
+
+.container {
+  max-width: 102rem;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.goclub-layout-shell {
+  align-items: flex-start;
+}
+
+.book-menu {
+  flex: 0 0 var(--goclub-sidebar-width);
+  position: relative;
+  transition: flex-basis 0.24s ease;
+}
+
+.book-menu .book-menu-content {
+  width: var(--goclub-sidebar-width);
+  padding: 1.15rem 1rem 5rem;
+  border: 1px solid var(--goclub-border);
+  border-radius: calc(var(--goclub-radius-xl) + 0.25rem);
+  background:
+    linear-gradient(180deg, rgba(244, 244, 240, 0.96), rgba(239, 238, 234, 0.9));
+  box-shadow: var(--goclub-shadow);
+  backdrop-filter: blur(14px);
+  transition:
+    width 0.24s ease,
+    padding 0.24s ease,
+    border-radius 0.24s ease,
+    transform 0.24s ease;
+}
+
+.book-menu nav {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 2rem);
+}
+
+.book-menu nav > ul {
+  margin-top: 0.35rem;
+}
+
+.sidebar-toggle {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid rgba(0, 51, 49, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 14px 30px rgba(36, 48, 46, 0.12);
+  color: var(--goclub-primary);
+  font-weight: 800;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.sidebar-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.sidebar-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--goclub-primary);
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.book-brand {
+  margin-bottom: 1rem;
+}
+
+.book-brand a {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding: 1.05rem;
+  border-radius: 1.35rem;
+  background:
+    radial-gradient(circle at top right, rgba(255, 223, 150, 0.72), transparent 9rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(233, 232, 228, 0.88));
+  border: 1px solid rgba(112, 121, 120, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.book-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  border-radius: 1rem;
+  background: var(--goclub-primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  flex: 0 0 auto;
+}
+
+.book-brand-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.book-brand-name {
+  font-family: var(--goclub-font-headline);
+  font-size: 1.55rem;
+  line-height: 1;
+  font-weight: 800;
+  color: var(--goclub-primary);
+}
+
+.book-brand-tag {
+  margin-top: 0.28rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(0, 51, 49, 0.62);
+  font-weight: 800;
+}
+
+.book-menu .book-search {
+  margin: 0 0 1rem;
+}
+
+.book-menu .book-search input {
+  width: 100%;
+  padding: 0.88rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(112, 121, 120, 0.18);
+  background: rgba(255, 255, 255, 0.92);
+  color: #1b1c1a;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+.book-menu .book-search input::placeholder {
+  color: rgba(27, 28, 26, 0.48);
+}
+
+.book-menu .book-search input:focus {
+  outline: none;
+  border-color: rgba(0, 75, 73, 0.36);
+  box-shadow: 0 0 0 0.25rem rgba(149, 209, 206, 0.28);
+}
+
+.book-menu #book-search-results {
+  margin-top: 0.6rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(112, 121, 120, 0.16);
+  padding: 0.35rem;
+}
+
+.book-menu #book-search-results li {
+  border-radius: 0.85rem;
+}
+
+.book-menu #book-search-results a {
+  padding: 0.6rem 0.7rem 0 0.7rem;
+  color: #1b1c1a;
+}
+
+.book-menu #book-search-results small {
+  display: block;
+  padding: 0 0.7rem 0.65rem;
+  color: rgba(27, 28, 26, 0.54);
+}
+
+.book-menu nav ul ul {
+  margin-top: 0.35rem;
+  padding-inline-start: 1rem;
+  border-inline-start: 1px solid rgba(112, 121, 120, 0.18);
+}
+
+.book-menu nav li + li {
+  margin-top: 0.16rem;
+}
+
+.book-menu a,
+.book-menu label {
+  border-radius: 0.95rem;
+}
+
+.book-menu a {
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.8rem 0.95rem;
+  color: #1b1c1a;
+  font-weight: 600;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.book-menu a[href]:hover {
+  opacity: 1;
+  background: rgba(227, 226, 223, 0.95);
+  transform: translateX(2px);
+}
+
+.book-menu a.active {
+  color: var(--goclub-primary);
+  background: rgba(227, 226, 223, 0.98);
+  border-inline-start: 4px solid var(--goclub-secondary);
+  font-weight: 800;
+  padding-inline-start: calc(0.95rem - 4px);
+}
+
+.book-menu label > img:last-child {
+  margin-inline-start: auto;
+}
+
+body.sidebar-collapsed .book-menu {
+  flex-basis: var(--goclub-sidebar-collapsed-width);
+}
+
+body.sidebar-collapsed .book-menu .book-menu-content {
+  width: var(--goclub-sidebar-collapsed-width);
+  padding: 1rem 0.75rem 4.5rem;
+}
+
+body.sidebar-collapsed .sidebar-toggle {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+body.sidebar-collapsed .sidebar-toggle:hover {
+  transform: translateX(50%) translateY(-1px);
+}
+
+body.sidebar-collapsed .book-brand-copy,
+body.sidebar-collapsed .book-search,
+body.sidebar-collapsed .book-menu nav > ul {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+body.sidebar-collapsed .book-brand a {
+  justify-content: center;
+  padding-inline: 0.6rem;
+}
+
+body.sidebar-collapsed .book-brand {
+  margin-bottom: 0;
+}
+
+body.sidebar-collapsed .book-menu nav {
+  min-height: auto;
+}
+
+body.sidebar-collapsed .book-brand-mark {
+  margin: 0;
+}
+
+.book-page {
+  min-width: 0;
+  padding: 0;
+}
+
+.book-page > .book-header,
+.book-page > .book-footer,
+.book-page > .book-comments,
+.book-page > article.book-article {
+  max-width: var(--goclub-page-width);
+  margin: 0 auto;
+}
+
+.book-page > .book-header {
+  margin-bottom: 1rem;
+}
+
+.book-page > article.book-article,
+.book-page > .book-footer,
+.book-page > .book-comments {
+  background: var(--goclub-surface);
+  border: 1px solid rgba(112, 121, 120, 0.15);
+  border-radius: var(--goclub-radius-xl);
+  box-shadow: var(--goclub-shadow-soft);
+  backdrop-filter: blur(12px);
+}
+
+.book-page > article.book-article {
+  padding: 2rem;
+}
+
+.book-page > .book-footer,
+.book-page > .book-comments {
+  margin-top: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.book-page > .book-comments:empty {
+  display: none;
+}
+
+.book-toc {
+  flex: 0 0 var(--goclub-toc-width);
+}
+
+.book-toc .book-toc-content {
+  width: var(--goclub-toc-width);
+  padding: 1rem 1rem 1.1rem;
+  border: 1px solid rgba(112, 121, 120, 0.16);
+  border-radius: 1.55rem;
+  background: rgba(244, 244, 240, 0.92);
+  box-shadow: var(--goclub-shadow-soft);
+  backdrop-filter: blur(12px);
+}
+
+.book-toc-content::before {
+  content: "本页导航";
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0, 51, 49, 0.6);
+}
+
+.book-toc nav ul {
+  padding-inline-start: 0;
+}
+
+.book-toc nav ul ul {
+  padding-inline-start: 0.9rem;
+}
+
+.book-toc nav li + li {
+  margin-top: 0.18rem;
+}
+
+.book-toc nav a {
+  display: block;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.85rem;
+  color: rgba(27, 28, 26, 0.82);
+}
+
+.book-toc nav a:hover {
+  background: rgba(227, 226, 223, 0.9);
+}
+
+.book-header {
+  background: rgba(244, 244, 240, 0.92);
+  border: 1px solid rgba(112, 121, 120, 0.16);
+  border-radius: 1.35rem;
+  padding: 0.9rem 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.goclub-mobile-header {
+  display: grid;
+  grid-template-columns: 2.8rem minmax(0, 1fr) 2.8rem;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.goclub-mobile-header-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 0.95rem;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(112, 121, 120, 0.15);
+  color: var(--goclub-primary);
+  cursor: pointer;
+}
+
+.goclub-mobile-header-button.is-hidden {
+  visibility: hidden;
+}
+
+.goclub-mobile-header-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.goclub-mobile-header-copy {
+  min-width: 0;
+}
+
+.goclub-mobile-header-label {
+  margin-bottom: 0.15rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(0, 51, 49, 0.54);
+  font-weight: 800;
+}
+
+.book-header h3,
+.goclub-mobile-header-copy h3 {
+  margin: 0;
+  color: var(--goclub-primary);
+  font-family: var(--goclub-font-headline);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.book-article {
+  position: relative;
+}
+
+.book-article h1,
+.page-lead-title,
+.page-hero h1,
+.homepage-github-title {
+  font-family: var(--goclub-font-headline);
+  letter-spacing: -0.035em;
+}
+
+.book-article h1 {
+  margin-bottom: 1rem;
+  font-size: clamp(2.5rem, 4vw, 4.25rem);
+  line-height: 1.02;
+  color: var(--goclub-primary);
+}
+
+.book-article h1 .page-home-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.book-article h1 .page-home-link:hover {
+  text-decoration: none;
+}
+
+.book-article h2,
+.book-article h3,
+.book-article h4 {
+  color: #1f2b2a;
+  line-height: 1.16;
+}
+
+.book-article h2 {
+  margin-top: 2.4rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(112, 121, 120, 0.14);
+  font-size: 1.75rem;
+}
+
+.book-article h3 {
+  font-size: 1.3rem;
+}
+
+.book-article p,
+.book-article li,
+.book-article blockquote,
+.book-article table {
+  font-size: 1.04rem;
+}
+
+.book-article p,
+.book-article li {
+  color: rgba(27, 28, 26, 0.82);
+  line-height: 1.8;
+}
+
+.book-article p + ul,
+.book-article p + ol {
+  margin-top: -0.25rem;
+}
+
+.book-article ul li,
+.book-article ol li {
+  margin: 0.45rem 0;
+}
+
+.book-article hr {
+  margin: 2rem 0;
+}
+
+.markdown a[href] {
+  text-decoration-thickness: 0.11em;
+  text-underline-offset: 0.14em;
+}
+
+.markdown code {
+  padding: 0.15em 0.42em;
+  border-radius: 0.6rem;
+  background: rgba(0, 75, 73, 0.08);
+  border-color: rgba(112, 121, 120, 0.16);
+}
+
+.markdown pre {
+  padding: 1.15rem 1.2rem;
+  border-radius: 1.25rem;
+  background: rgba(244, 244, 240, 0.96);
+  border-color: rgba(112, 121, 120, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.markdown blockquote {
+  padding: 1rem 1.15rem;
+  border-inline-start: 5px solid var(--goclub-secondary);
+  background: rgba(255, 218, 210, 0.42);
+  border-radius: 0 1rem 1rem 0;
+}
+
+.markdown table {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(112, 121, 120, 0.14);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.markdown table tr th {
+  background: rgba(0, 75, 73, 0.07);
+  color: #1b1c1a;
+}
+
+.markdown img {
+  border-radius: 1.25rem;
+  box-shadow: var(--goclub-shadow-soft);
+}
+
+.page-hero,
+.page-lead,
+.homepage-github-callout,
+.section-overview,
+.section-stat,
+.section-card,
+.hero-metric,
+.goclub-nav-card,
+.contributor-card {
+  border-radius: var(--goclub-radius-lg);
+}
+
+.page-hero {
+  margin-bottom: 1.9rem;
+  padding: 2.25rem;
+  border: 1px solid rgba(112, 121, 120, 0.13);
+  background:
+    radial-gradient(circle at top right, rgba(255, 223, 150, 0.46), transparent 12rem),
+    radial-gradient(circle at bottom left, rgba(149, 209, 206, 0.18), transparent 16rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(244, 244, 240, 0.94));
+  box-shadow: var(--goclub-shadow);
+}
+
+.page-hero-kicker,
+.page-lead-badge,
+.homepage-github-label,
+.section-card-kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.34rem 0.78rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-hero-kicker {
+  background: var(--goclub-tertiary);
+  color: var(--goclub-tertiary-ink);
+}
+
+.page-hero h1 {
+  margin: 0.95rem 0 0;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 1.08;
+  color: var(--goclub-primary);
+}
+
+.page-hero-copy {
+  max-width: 42rem;
+  margin-top: 0.9rem;
+  font-size: 1.08rem;
+  line-height: 1.82;
+  color: rgba(27, 28, 26, 0.78);
+}
+
+.page-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.45rem;
+}
+
+.page-hero-button,
+.page-hero-button-secondary,
+.homepage-github-button,
+.homepage-github-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.2rem;
+  padding: 0.82rem 1.25rem;
+  border-radius: 1rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.markdown .page-hero-button[href],
+.markdown .homepage-github-button[href] {
+  background: linear-gradient(135deg, var(--goclub-primary), var(--goclub-primary-soft));
+  color: #fff;
+  box-shadow: 0 16px 32px rgba(0, 51, 49, 0.18);
+}
+
+.markdown .page-hero-button-secondary[href],
+.markdown .homepage-github-secondary[href] {
+  background: rgba(233, 232, 228, 0.92);
+  color: var(--goclub-primary);
+  border: 1px solid rgba(112, 121, 120, 0.16);
+}
+
+.hero-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+}
+
+.hero-metric {
+  min-width: 9.5rem;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(112, 121, 120, 0.14);
+}
+
+.hero-metric-value {
+  display: block;
+  font-size: 1.7rem;
+  line-height: 1;
+  font-weight: 850;
+  color: var(--goclub-primary);
+}
+
+.hero-metric-label {
+  display: block;
+  margin-top: 0.45rem;
+  color: rgba(27, 28, 26, 0.6);
+  font-size: 0.82rem;
+}
+
+.page-lead {
+  margin-bottom: 1.5rem;
+  padding: 1.35rem;
+  border: 1px solid rgba(112, 121, 120, 0.13);
+  background:
+    radial-gradient(circle at top right, rgba(255, 223, 150, 0.28), transparent 10rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(244, 244, 240, 0.92));
+}
+
+.page-lead-badge {
+  background: var(--goclub-primary);
+  color: #fff;
+}
+
+.page-lead-title {
+  margin-top: 0.8rem;
+  font-size: clamp(2.2rem, 3.8vw, 3.45rem);
+  line-height: 1.05;
+  font-weight: 800;
+  color: var(--goclub-primary);
+}
+
+.page-lead-summary {
+  margin-top: 0.75rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(27, 28, 26, 0.78);
+}
+
+.page-lead-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+.page-lead-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.3rem;
+  padding: 0.54rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(112, 121, 120, 0.13);
+  font-size: 0.92rem;
+  color: rgba(0, 51, 49, 0.86);
+}
+
+.section-index-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.section-overview {
+  padding: 1.35rem;
+  border: 1px solid rgba(112, 121, 120, 0.12);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(239, 238, 234, 0.88));
+}
+
+.section-overview p:last-child {
+  margin-bottom: 0;
+}
+
+.section-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.section-stat {
+  min-width: 11rem;
+  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(112, 121, 120, 0.12);
+}
+
+.section-stat-label {
+  display: block;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: rgba(0, 51, 49, 0.58);
+  font-weight: 800;
+}
+
+.section-stat-value {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 1.72rem;
+  line-height: 1.05;
+  font-weight: 850;
+  color: var(--goclub-primary);
+}
+
+.entry-cluster {
+  margin-top: 2.15rem;
+}
+
+.entry-cluster-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  color: var(--goclub-primary);
+  font-size: 1.28rem;
+  font-weight: 800;
+}
+
+.entry-cluster-title::before {
+  content: "";
+  display: inline-block;
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--goclub-secondary), #d37450);
+  box-shadow: 0 0 0 0.38rem rgba(255, 218, 210, 0.56);
+}
+
+.section-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.35rem 0 0.2rem;
+}
+
+.section-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 14rem;
+  padding: 1.4rem;
+  border: 1px solid rgba(112, 121, 120, 0.12);
+  background:
+    radial-gradient(circle at top right, rgba(255, 223, 150, 0.18), transparent 8rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 244, 240, 0.92));
+  box-shadow: var(--goclub-shadow-card);
+  overflow: hidden;
+}
+
+.section-card::after {
+  content: "";
+  position: absolute;
+  top: -1.5rem;
+  right: -1rem;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 51, 49, 0.08), transparent 62%);
+  pointer-events: none;
+}
+
+.section-card-kind {
+  align-self: flex-start;
+  background: rgba(255, 218, 210, 0.68);
+  color: var(--goclub-secondary);
+}
+
+.section-card-title {
+  margin-top: 0.9rem;
+  font-family: var(--goclub-font-headline);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #162624;
+  line-height: 1.08;
+}
+
+.section-card-summary {
+  margin-top: 0.75rem;
+  color: rgba(27, 28, 26, 0.74);
+  line-height: 1.72;
+  flex-grow: 1;
+}
+
+.section-card-meta {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  color: rgba(27, 28, 26, 0.58);
+}
+
+.section-card-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: var(--goclub-primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.section-card:hover {
+  text-decoration: none;
+  transform: translateY(-3px);
+  box-shadow: 0 22px 48px rgba(36, 48, 46, 0.12);
+}
+
+.section-card:hover .section-card-title,
+.section-card:hover .section-card-summary {
+  text-decoration: none;
+}
+
+.section-card-featured {
+  grid-column: 1 / -1;
+  min-height: 18rem;
+  padding: 1.65rem;
+  background:
+    linear-gradient(110deg, rgba(0, 75, 73, 0.98), rgba(0, 51, 49, 0.9)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+  color: #fff;
+}
+
+.section-card-featured::after {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 58%);
+}
+
+.section-card-featured .section-card-kind {
+  background: rgba(255, 223, 150, 0.92);
+  color: var(--goclub-tertiary-ink);
+}
+
+.section-card-featured .section-card-title,
+.section-card-featured .section-card-summary,
+.section-card-featured .section-card-meta {
+  color: #fff;
+}
+
+.section-card-featured .section-card-arrow {
+  background: var(--goclub-secondary);
+}
+
+.section-card-featured .section-card-visual {
+  margin-top: 1rem;
+  align-self: flex-end;
+  width: 100%;
+  max-width: 14rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+.section-card-featured .section-card-visual img {
+  display: block;
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.homepage-github-callout {
+  margin: 1.6rem 0 2rem;
+  padding: 1.7rem;
+  border: 1px solid rgba(112, 121, 120, 0.14);
+  background:
+    radial-gradient(circle at top right, rgba(255, 223, 150, 0.34), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(233, 232, 228, 0.92));
+  box-shadow: var(--goclub-shadow-card);
+}
+
+.homepage-github-label {
+  background: var(--goclub-primary);
+  color: #fff;
+}
+
+.homepage-github-title {
+  margin-top: 0.95rem;
+  font-size: clamp(2.05rem, 3vw, 2.85rem);
+  line-height: 1.08;
+  font-weight: 800;
+  color: var(--goclub-primary);
+}
+
+.homepage-github-url {
+  margin-top: 0.8rem;
+  font-size: 1rem;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.markdown .homepage-github-url a[href] {
+  color: var(--goclub-primary-soft);
+  text-decoration: underline;
+  text-decoration-thickness: 0.12em;
+}
+
+.homepage-github-callout p {
+  margin: 0.9rem 0 0;
+  max-width: 46rem;
+  color: rgba(27, 28, 26, 0.78);
+}
+
+.homepage-github-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.25rem;
+}
+
+.contributors-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin-top: 1.5rem;
+}
+
+.contributor-card {
+  border: 1px solid rgba(112, 121, 120, 0.13);
+  padding: 1rem;
+  display: flex;
+  gap: 0.95rem;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: var(--goclub-shadow-soft);
+}
+
+.contributor-avatar-link {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.contributor-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.contributor-body {
+  min-width: 0;
+}
+
+.contributor-name {
+  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+}
+
+.contributor-role {
+  margin: 0.2rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--goclub-primary-soft);
+}
+
+.contributor-fullname,
+.contributor-meta {
+  margin: 0.2rem 0;
+  font-size: 0.92rem;
+  word-break: break-word;
+}
+
+.book-footer > .flex.flex-wrap.justify-between:first-child {
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(112, 121, 120, 0.12);
+}
+
+.book-footer .goclub-prev-next {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 1.1rem;
+}
+
+.book-footer .goclub-prev-next:has(.goclub-nav-card:only-child) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.goclub-nav-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4.8rem;
+  padding: 1rem 1.1rem;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(112, 121, 120, 0.12);
+}
+
+.goclub-nav-card:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: var(--goclub-shadow-soft);
+}
+
+.goclub-nav-card-meta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.goclub-nav-card-label {
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(0, 51, 49, 0.56);
+}
+
+.goclub-nav-card-title {
+  margin-top: 0.35rem;
+  color: #1b1c1a;
+  font-weight: 700;
+}
+
+.goclub-nav-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.45rem;
+  height: 2.45rem;
+  border-radius: 999px;
+  background: var(--goclub-primary);
+  color: #fff;
+  font-size: 1rem;
+  flex: 0 0 auto;
+}
+
+.book-layout-landing .book-page > article.book-article {
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.book-layout-landing .book-page > .book-footer {
+  display: none;
+}
+
+.not-found h1,
+.not-found h3 {
+  font-family: var(--goclub-font-headline);
+}
+
+@media screen and (max-width: 88rem) {
+  .book-toc {
+    display: none;
+  }
+
+  .container {
+    max-width: 88rem;
+  }
+}
+
+@media screen and (max-width: 56rem) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  .book-menu {
+    visibility: hidden;
+    margin-inline-start: calc(-1 * var(--goclub-sidebar-width));
+    z-index: 30;
+  }
+
+  .book-menu .book-menu-content {
+    width: var(--goclub-sidebar-width);
+    padding: 1rem 1rem 1rem;
+    background:
+      linear-gradient(180deg, rgba(244, 244, 240, 0.98), rgba(239, 238, 234, 0.96));
+    transform: none;
+  }
+
+  .sidebar-toggle {
+    display: none;
+  }
+
+  .book-page > article.book-article {
+    padding: 1.35rem;
+    border-radius: 1.35rem;
+  }
+
+  .book-page > .book-footer,
+  .book-page > .book-comments {
+    border-radius: 1.25rem;
+  }
+
+  .page-hero,
+  .homepage-github-callout {
+    padding: 1.35rem;
+    border-radius: 1.45rem;
+  }
+
+  .page-lead {
+    padding: 1.15rem;
+    border-radius: 1.25rem;
+  }
+
+  .page-hero h1,
+  .page-lead-title,
+  .book-article h1,
+  .homepage-github-title {
+    font-size: 2.2rem;
+  }
+
+  .page-hero-actions,
+  .homepage-github-actions,
+  .hero-metrics {
+    flex-direction: column;
+  }
+
+  .section-card-grid,
+  .book-footer .goclub-prev-next {
+    grid-template-columns: 1fr;
+  }
+
+  .section-card,
+  .section-card-featured {
+    min-height: 0;
+  }
+
+  .section-card-featured .section-card-visual {
+    width: 100%;
+  }
+
+  .goclub-mobile-header-copy h3 {
+    font-size: 1.05rem;
+  }
+
+  #menu-control:checked ~ main .book-menu {
+    visibility: initial;
+  }
+
+  #menu-control:checked ~ main .book-menu .book-menu-content {
+    transform: translateX(var(--goclub-sidebar-width));
+    box-shadow: 0 0 1.2rem rgba(0, 0, 0, 0.14);
+  }
+
+  #menu-control:checked ~ main .book-page {
+    opacity: 0.3;
+  }
+
+  #menu-control:checked ~ main .book-menu-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+  }
+
+  body[dir="rtl"] #menu-control:checked ~ main .book-menu .book-menu-content {
+    transform: translateX(calc(-1 * var(--goclub-sidebar-width)));
+  }
+}

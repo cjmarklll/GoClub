@@ -8,6 +8,4 @@ bookCollapseSection: true
 
 这里收录小厂相关面试真题。
 
-## 当前内容
-
-- [深圳多方维面试题]({{< relref "/docs/interview/xiaochang/深圳多方维.md" >}})
+这里的内容更贴近日常业务面试场景，适合补齐项目表达、基础问题和沟通应对。

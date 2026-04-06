@@ -1,8 +1,9 @@
 <h2 class="book-brand">
   <a class="flex align-center" href="{{ .Site.Home.Permalink }}">
-    {{- with .Site.Params.BookLogo -}}
-    <img src="{{ . | relURL }}" alt="{{ partial "docs/text/i18n" "Logo" }}" />
-    {{- end -}}
-    <span>{{ .Site.Title }}</span>
+    <span class="book-brand-mark">GC</span>
+    <span class="book-brand-copy">
+      <span class="book-brand-name">{{ .Site.Title }}</span>
+      <span class="book-brand-tag">知识整理与社区共建</span>
+    </span>
   </a>
 </h2>

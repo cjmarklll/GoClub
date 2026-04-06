@@ -1,0 +1,14 @@
+<div class="goclub-mobile-header">
+  <label for="menu-control" class="goclub-mobile-header-button" aria-label="打开导航">
+    <span class="goclub-mobile-header-icon" aria-hidden="true">≡</span>
+  </label>
+
+  <div class="goclub-mobile-header-copy">
+    <div class="goclub-mobile-header-label">GoClub 知识库</div>
+    <h3>{{ partial "docs/title" . }}</h3>
+  </div>
+
+  <label for="toc-control" class="goclub-mobile-header-button {{ if not (partial "docs/toc-show" .) }}is-hidden{{ end }}" aria-label="打开目录">
+    <span class="goclub-mobile-header-icon" aria-hidden="true">☰</span>
+  </label>
+</div>

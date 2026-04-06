@@ -8,7 +8,4 @@ bookCollapseSection: true
 
 这里用于承接视频内容、直播内容或其他材料的文字补充说明。
 
-## 当前内容
-
-- [Go后端学习路线]({{< relref "/docs/companion/Go后端学习路线.md" >}})
-- [找到实习需要什么]({{< relref "/docs/companion/找到实习需要什么？.md" >}})
+如果你希望把零散的视频内容和实践经验串成一条连续的学习线，可以先看这里。

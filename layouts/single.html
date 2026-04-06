@@ -1,0 +1,34 @@
+{{ define "main" }}
+  {{ $sectionTitle := "" }}
+  {{ with .CurrentSection }}
+    {{ $sectionTitle = partial "docs/title" . }}
+  {{ end }}
+  {{ $summary := partial "goclub/lead-summary.html" . }}
+  {{ $hasToc := partial "docs/toc-show" . }}
+  {{ $content := partial "goclub/stripped-content.html" . }}
+
+  <article class="markdown book-article">
+    <section class="page-lead">
+      <span class="page-lead-badge">{{ if $sectionTitle }}{{ $sectionTitle }}{{ else }}内容文档{{ end }}</span>
+      <div class="page-lead-title">{{ partial "docs/title" . }}</div>
+      {{ with $summary }}
+        <div class="page-lead-summary">{{ . }}</div>
+      {{ end }}
+      <div class="page-lead-meta">
+        {{ with .CurrentSection }}
+          {{ if ne .RelPermalink $.RelPermalink }}
+            <a class="page-lead-chip" href="{{ .RelPermalink }}">所属栏目：{{ partial "docs/title" . }}</a>
+          {{ end }}
+        {{ end }}
+        {{ if .GitInfo }}
+          <span class="page-lead-chip">最近更新：{{ partial "docs/date" (dict "Date" .Lastmod "Format" .Site.Params.BookDateFormat) }}</span>
+        {{ end }}
+        {{ if $hasToc }}
+          <span class="page-lead-chip">支持右侧目录导航</span>
+        {{ end }}
+      </div>
+    </section>
+
+    {{- $content | safeHTML -}}
+  </article>
+{{ end }}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GoClub Knowledge Base - Technical Interview Prep</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#392a00",
+                        "secondary-fixed-dim": "#ffb4a2",
+                        "error": "#ba1a1a",
+                        "surface-dim": "#dbdad6",
+                        "surface-container-high": "#e9e8e4",
+                        "on-tertiary-fixed": "#251a00",
+                        "outline": "#707978",
+                        "surface-container-highest": "#e3e2df",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#084f4d",
+                        "tertiary-container": "#543f00",
+                        "background": "#faf9f5",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#004b49",
+                        "on-tertiary-fixed-variant": "#5a4400",
+                        "on-primary-fixed": "#00201f",
+                        "on-surface": "#1b1c1a",
+                        "outline-variant": "#bfc8c7",
+                        "on-secondary-fixed-variant": "#83260e",
+                        "inverse-on-surface": "#f2f1ed",
+                        "on-surface-variant": "#3f4948",
+                        "surface": "#faf9f5",
+                        "surface-bright": "#faf9f5",
+                        "primary-fixed-dim": "#95d1ce",
+                        "secondary-container": "#ff8162",
+                        "tertiary-fixed": "#ffdf96",
+                        "on-background": "#1b1c1a",
+                        "on-secondary-fixed": "#3c0700",
+                        "surface-variant": "#e3e2df",
+                        "inverse-surface": "#2f312e",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#ffdad2",
+                        "surface-container-low": "#f4f4f0",
+                        "on-tertiary-container": "#cdaa53",
+                        "secondary": "#a33d23",
+                        "on-primary-container": "#7ebab7",
+                        "surface-tint": "#2a6865",
+                        "primary-fixed": "#b1eeea",
+                        "on-error": "#ffffff",
+                        "on-secondary-container": "#731a04",
+                        "surface-container": "#efeeea",
+                        "primary": "#003331",
+                        "tertiary-fixed-dim": "#e7c268",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#95d1ce",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .headline-font { font-family: 'Newsreader', serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar (Authority Source: JSON / {{DATA:COMPONENTS:COMPONENTS_3}}) -->
+<aside class="w-72 h-screen fixed left-0 top-0 overflow-y-auto bg-[#f4f4f0] dark:bg-[#252623] text-[#003331] dark:text-[#bfc8c7] flex flex-col h-full py-6 px-4 z-40">
+<div class="mb-10 px-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary flex items-center justify-center rounded-lg text-on-primary">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+</div>
+<div>
+<h1 class="text-2xl font-black font-['Newsreader'] text-[#003331]">GoClub</h1>
+<p class="text-xs opacity-70 uppercase tracking-widest font-bold">The Knowledge Archive</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-[#e3e2df] dark:bg-[#343532] text-[#003331] font-bold border-l-4 border-[#a33d23] transition-all scale-x-95 active:scale-100 group" href="#">
+<span class="material-symbols-outlined text-secondary" data-icon="menu_book">menu_book</span>
+<span>Documentation</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#1b1c1a] dark:text-[#bfc8c7] opacity-70 hover:bg-[#e3e2df] dark:hover:bg-[#343532] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="code">code</span>
+<span>GitHub Repo</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#1b1c1a] dark:text-[#bfc8c7] opacity-70 hover:bg-[#e3e2df] dark:hover:bg-[#343532] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="edit_note">edit_note</span>
+<span>Contribution Guide</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#1b1c1a] dark:text-[#bfc8c7] opacity-70 hover:bg-[#e3e2df] dark:hover:bg-[#343532] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="inventory_2">inventory_2</span>
+<span>Archive</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#1b1c1a] dark:text-[#bfc8c7] opacity-70 hover:bg-[#e3e2df] dark:hover:bg-[#343532] transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary transition-colors" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/20 space-y-4">
+<button class="w-full bg-primary text-on-primary py-3 px-4 rounded-lg font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+            Edit on GitHub
+        </button>
+<div class="flex flex-col gap-2 px-4">
+<a class="flex items-center gap-2 text-sm opacity-70 hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help_outline">help_outline</span> Support
+            </a>
+<a class="flex items-center gap-2 text-sm opacity-70 hover:text-secondary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span> Terms
+            </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Area - Shifted to top since TopAppBar is removed -->
+<main class="ml-72 min-h-screen">
+<!-- Hero Section - Adjusted padding-top to fill space previously occupied by top bar -->
+<section class="max-w-[54rem] mx-auto pt-16 pb-16 px-8">
+<div class="space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary-fixed text-on-tertiary-fixed rounded-full text-sm font-bold tracking-tight">
+<span class="material-symbols-outlined text-[18px]" data-icon="verified">verified</span>
+                GoClub
+            </div>
+<h2 class="text-6xl md:text-7xl font-bold headline-font text-primary leading-[1.1] tracking-tight">
+                Technical Interview Preparation &amp; Content Co-construction Knowledge Base
+            </h2>
+<p class="text-xl text-on-surface-variant font-body leading-relaxed max-w-2xl opacity-90">
+                A curated archive of high-fidelity engineering insights, collaboratively built by the community to bridge the gap between academic theory and industry reality.
+            </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<a class="inline-flex items-center gap-2 bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-4 rounded-xl font-bold shadow-lg hover:translate-y-[-2px] transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="github">code</span>
+                    GitHub Repository
+                </a>
+<a class="inline-flex items-center gap-2 bg-surface-container-high text-primary px-8 py-4 rounded-xl font-bold hover:bg-surface-container-highest transition-all" href="#">
+                    Contribution Guide
+                </a>
+</div>
+<!-- Stats/Tags -->
+<div class="flex flex-wrap gap-3 pt-12">
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-lg text-sm font-medium">
+<span class="material-symbols-outlined text-secondary" data-icon="view_column">view_column</span>
+<span class="font-bold">12</span> Knowledge Columns
+                </div>
+<div class="flex items-center gap-2 bg-surface-container-low px-4 py-2 rounded-lg text-sm font-medium">
+<span class="material-symbols-outlined text-secondary" data-icon="bolt">bolt</span>
+                    Built with Hugo
+                </div>
+<div class="flex items-center gap-2 bg-secondary-fixed text-on-secondary-fixed px-4 py-2 rounded-lg text-sm font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="groups">groups</span>
+                    GitHub Co-creation
+                </div>
+</div>
+</div>
+</section>
+<!-- Column Navigation Grid -->
+<section class="max-w-[54rem] mx-auto pb-24 px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Bento Card: Algorithms -->
+<div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-all group relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 opacity-5 translate-x-8 translate-y-[-8px]">
+<span class="material-symbols-outlined text-9xl" data-icon="data_object">data_object</span>
+</div>
+<span class="text-secondary font-bold text-sm tracking-widest uppercase mb-4 block">Algorithms &amp; Data</span>
+<h3 class="text-3xl headline-font font-bold mb-4">Core Computational Structures</h3>
+<p class="text-on-surface-variant mb-8 font-body">Deep dives into Big O optimization, recursive patterns, and advanced tree structures used in top-tier technical evaluations.</p>
+<a class="inline-flex items-center gap-2 font-bold text-primary group-hover:gap-4 transition-all" href="#">
+                    Explore Column
+                    <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Bento Card: System Design -->
+<div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-all group">
+<span class="text-secondary font-bold text-sm tracking-widest uppercase mb-4 block">System Architecture</span>
+<h3 class="text-3xl headline-font font-bold mb-4">Scalability &amp; Distributed Systems</h3>
+<p class="text-on-surface-variant mb-8 font-body">Architectural blueprints for modern web-scale applications, covering load balancing, sharding, and consensus protocols.</p>
+<a class="inline-flex items-center gap-2 font-bold text-primary group-hover:gap-4 transition-all" href="#">
+                    Explore Column
+                    <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Bento Card: Frontend (GitHub Highlighted) -->
+<div class="md:col-span-2 bg-primary-container text-on-primary-container p-10 rounded-xl flex flex-col md:flex-row items-center gap-10 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-r from-primary/50 to-transparent pointer-events-none"></div>
+<div class="flex-1 z-10">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1 rounded text-xs font-black tracking-tighter uppercase mb-4 inline-block">Active Contribution</span>
+<h3 class="text-4xl headline-font font-bold mb-4 text-white">Frontend Craftsmanship</h3>
+<p class="opacity-90 mb-8 max-w-xl font-body">From rendering pipelines to state management paradigms. This column is currently undergoing a major community-led update on GitHub.</p>
+<div class="flex gap-4">
+<a class="bg-secondary text-on-secondary px-6 py-3 rounded-lg font-bold flex items-center gap-2 shadow-xl" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+                            View Revision History
+                        </a>
+<a class="text-on-primary-container font-bold hover:underline py-3 px-2" href="#">
+                            Entry Hint: React Hooks
+                        </a>
+</div>
+</div>
+<div class="w-full md:w-64 h-48 rounded-xl overflow-hidden shadow-2xl z-10 rotate-3">
+<img alt="Code editor" class="w-full h-full object-cover" data-alt="Close-up of a high-resolution laptop screen displaying clean lines of JavaScript code in a dark editorial-style editor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr7IXAJ706W3mmX21TqOkPzJf-NStN18Srfe21NggIvvANu672NtafPirn0VxPPUVgiJ8HNRoT_kY1eCjwG8LgaUmKGiAsJP81-M_MPBke5hrTpICS9Ba-BPVNXVr4PZjCgrBgEIPLEgrEjq4HqYUDTByhBb8uNxsq2uQCb4QjpnfqqC2gRsU9_ogoSg30nTTDkbl2rXUk__OHzCO--ZlmBfCVb7b42h1nc_H_OQmpDBSOIPF8t8vMD5EBwHh0nYZbew_Kb1kT9RM"/>
+</div>
+</div>
+<!-- Bento Card: Backend -->
+<div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-all group">
+<span class="text-secondary font-bold text-sm tracking-widest uppercase mb-4 block">Backend &amp; API</span>
+<h3 class="text-3xl headline-font font-bold mb-4">Concurrency &amp; API Design</h3>
+<p class="text-on-surface-variant mb-8 font-body">Mastering Go channels, Java concurrency models, and RESTful vs GraphQL architectural decisions.</p>
+<a class="inline-flex items-center gap-2 font-bold text-primary group-hover:gap-4 transition-all" href="#">
+                    Explore Column
+                    <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Bento Card: Soft Skills -->
+<div class="bg-surface-container-lowest p-8 rounded-xl hover:bg-surface-container-high transition-all group">
+<span class="text-secondary font-bold text-sm tracking-widest uppercase mb-4 block">Professional Growth</span>
+<h3 class="text-3xl headline-font font-bold mb-4">Leadership &amp; Communication</h3>
+<p class="text-on-surface-variant mb-8 font-body">Techniques for behavioral interviews, articulating technical complexity, and demonstrating high-level ownership.</p>
+<a class="inline-flex items-center gap-2 font-bold text-primary group-hover:gap-4 transition-all" href="#">
+                    Explore Column
+                    <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Footer (Authority Source: JSON / {{DATA:COMPONENTS:COMPONENTS_3}}) -->
+<footer class="bg-[#f4f4f0] dark:bg-[#1b1c1a] text-[#004b49] dark:text-[#bfc8c7] w-full py-12 mt-auto border-none">
+<div class="max-w-[54rem] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<span class="font-['Newsreader'] italic text-[#003331] text-lg block mb-1">GoClub Knowledge Base</span>
+<p class="font-['Manrope'] text-sm opacity-70">© GoClub Knowledge Base. Curated for the community.</p>
+</div>
+<nav class="flex gap-8">
+<a class="text-[#1b1c1a] dark:text-[#bfc8c7] font-['Manrope'] text-sm hover:text-[#a33d23] hover:underline transition-colors duration-200" href="#">Edit on GitHub</a>
+<a class="text-[#1b1c1a] dark:text-[#bfc8c7] font-['Manrope'] text-sm hover:text-[#a33d23] hover:underline transition-colors duration-200" href="#">Last Updated</a>
+<a class="text-[#1b1c1a] dark:text-[#bfc8c7] font-['Manrope'] text-sm hover:text-[#a33d23] hover:underline transition-colors duration-200" href="#">Contributors</a>
+</nav>
+</div>
+</footer>
+</main>
+</body></html>

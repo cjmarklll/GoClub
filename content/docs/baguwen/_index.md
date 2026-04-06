@@ -8,11 +8,4 @@ bookCollapseSection: true
 
 这里用于系统整理常见八股知识，方便集中复习和查漏补缺。
 
-## 专题导航
-
-- [Go 八股]({{< relref "/docs/baguwen/Go.md" >}})
-- [MySQL 八股]({{< relref "/docs/baguwen/MySQL.md" >}})
-- [Redis 八股]({{< relref "/docs/baguwen/Reids.md" >}})
-- [操作系统八股]({{< relref "/docs/baguwen/OS.md" >}})
-- [计算机网络八股]({{< relref "/docs/baguwen/CN.md" >}})
-- [RabbitMQ 八股]({{< relref "/docs/baguwen/RabbitMQ.md" >}})
+如果你想按专题复习基础知识，可以先从语言、数据库、缓存、操作系统和计算机网络这几个主线进入。

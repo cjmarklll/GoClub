@@ -8,9 +8,4 @@ bookCollapseSection: true
 
 这里用于记录偏实践、偏经验和偏思考类的技术内容。
 
-## 当前内容
-
-- [投稿与提交流程]({{< relref "/docs/blog/提交流程.md" >}})
-- [GoClub项目介绍]({{< relref "/docs/blog/project.md" >}})
-- [Go语言相关笔记]({{< relref "/docs/blog/onenotes.md" >}})
-- [网站分享]({{< relref "/docs/blog/网站分享.md" >}})
+这里会放一些更偏过程、方法、经验和阶段性记录的内容，不只局限于纯题目整理。

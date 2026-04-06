@@ -3,63 +3,10 @@ title: "内容导航"
 bookCollapseSection: false
 ---
 
-欢迎来到 GoClub。
+# 内容导航
 
-这里主要围绕技术面试准备与系统复习整理内容。
+这里是 GoClub 的总入口页。
 
-目前站点分为以下六个栏目：
+如果你是第一次进入站点，可以先按“面试真题 / 八股总结 / 资源荟萃”这三个方向开始浏览；如果你希望补充内容或参与共建，也可以直接查看投稿流程或 GitHub 仓库。
 
-- 面试真题
-- 八股总结
-- 资源荟萃
-- 配套文章
-- 技术博客
-- 贡献者
-
-## 栏目入口
-
-- [面试真题]({{< relref "/docs/interview/_index.md" >}})
-- [八股总结]({{< relref "/docs/baguwen/_index.md" >}})
-- [资源荟萃]({{< relref "/docs/resources/_index.md" >}})
-- [配套文章]({{< relref "/docs/companion/_index.md" >}})
-- [技术博客]({{< relref "/docs/blog/_index.md" >}})
-- [贡献者]({{< relref "/docs/contributors/_index.md" >}})
-
-## 当前内容
-
-### 面试真题
-
-- [大厂面试]({{< relref "/docs/interview/dachang/_index.md" >}})
-- [中厂面试]({{< relref "/docs/interview/zhongchang/_index.md" >}})
-- [小厂面试]({{< relref "/docs/interview/xiaochang/_index.md" >}})
-
-### 八股总结
-
-- [Go 八股]({{< relref "/docs/baguwen/Go.md" >}})
-- [MySQL 八股]({{< relref "/docs/baguwen/MySQL.md" >}})
-- [Redis 八股]({{< relref "/docs/baguwen/Reids.md" >}})
-- [操作系统八股]({{< relref "/docs/baguwen/OS.md" >}})
-- [计算机网络八股]({{< relref "/docs/baguwen/CN.md" >}})
-- [RabbitMQ 八股]({{< relref "/docs/baguwen/RabbitMQ.md" >}})
-
-### 资源荟萃
-
-- [好书分享]({{< relref "/docs/resources/好书分享.md" >}})
-- [Agent 相关网站推荐]({{< relref "/docs/resources/Agent相关网站推荐.md" >}})
-- [网站分享]({{< relref "/docs/resources/网站分享.md" >}})
-
-### 配套文章
-
-这里用于承接视频内容、直播内容或其他材料的文字补充说明。
-
-- [Go后端学习路线]({{< relref "/docs/companion/Go后端学习路线.md" >}})
-- [找到实习需要什么]({{< relref "/docs/companion/找到实习需要什么？.md" >}})
-
-### 技术博客
-
-- [GoClub项目介绍]({{< relref "/docs/blog/project.md" >}})
-- [Go语言相关笔记]({{< relref "/docs/blog/onenotes.md" >}})
-
-### 贡献者
-
-这里会展示 GoClub 的站长 / 维护者，以及所有提交过并已合并 PR 的贡献者。
+下面的栏目卡片会自动展示当前站点的核心分区和入口。

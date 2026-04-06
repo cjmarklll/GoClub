@@ -1,0 +1,47 @@
+- id: Search
+  translation: 搜索内容
+
+- id: Edit this page
+  translation: 编辑本页
+
+- id: Last modified by
+  translation: 最后修改者
+
+- id: Menu
+  translation: 导航菜单
+
+- id: Table of Contents
+  translation: 文章目录
+
+- id: Expand
+  translation: 展开
+
+- id: Backward
+  translation: 上一页
+
+- id: Forward
+  translation: 下一页
+
+- id: Calendar
+  translation: 日历
+
+- id: Edit
+  translation: 编辑
+
+- id: Languages
+  translation: 语言
+
+- id: Logo
+  translation: 站点标识
+
+- id: Thumbnail
+  translation: 缩略图
+
+- id: bookSearchConfig
+  translation: |
+    {
+      encode: false,
+      tokenize: function(str) {
+        return str.replace(/[\x00-\x7F]/g, '').split('');
+      }
+    }

@@ -1,0 +1,62 @@
+<script>
+  (function () {
+    var storageKey = "goclub.sidebar.collapsed";
+    var desktopQuery = window.matchMedia("(min-width: 56rem)");
+    var body = document.body;
+    var menuToggle = document.querySelector("[data-sidebar-toggle]");
+    var menuControl = document.getElementById("menu-control");
+    var tocControl = document.getElementById("toc-control");
+
+    function setCollapsed(collapsed) {
+      body.classList.toggle("sidebar-collapsed", collapsed);
+
+      if (menuToggle) {
+        var icon = menuToggle.querySelector(".sidebar-toggle-icon");
+        menuToggle.setAttribute("aria-expanded", collapsed ? "false" : "true");
+        menuToggle.setAttribute("aria-label", collapsed ? "展开侧边栏" : "收起侧边栏");
+
+        if (icon) {
+          icon.textContent = collapsed ? "›" : "‹";
+        }
+      }
+    }
+
+    function syncViewportState() {
+      if (!desktopQuery.matches) {
+        body.classList.remove("sidebar-collapsed");
+        if (menuControl) {
+          menuControl.checked = false;
+        }
+        if (tocControl) {
+          tocControl.checked = false;
+        }
+        return;
+      }
+
+      setCollapsed(localStorage.getItem(storageKey) === "true");
+    }
+
+    if (menuToggle) {
+      menuToggle.addEventListener("click", function () {
+        if (!desktopQuery.matches) {
+          if (menuControl) {
+            menuControl.checked = !menuControl.checked;
+          }
+          return;
+        }
+
+        var nextCollapsed = !body.classList.contains("sidebar-collapsed");
+        setCollapsed(nextCollapsed);
+        localStorage.setItem(storageKey, String(nextCollapsed));
+      });
+    }
+
+    if (desktopQuery.addEventListener) {
+      desktopQuery.addEventListener("change", syncViewportState);
+    } else if (desktopQuery.addListener) {
+      desktopQuery.addListener(syncViewportState);
+    }
+
+    syncViewportState();
+  })();
+</script>

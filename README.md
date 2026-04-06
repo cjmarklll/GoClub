@@ -2,10 +2,10 @@
 
 GoClub 是一个围绕技术面试准备与系统复习搭建的内容站点，主要整理面试真题、八股总结、资料视频、项目推荐，以及视频配套文章等内容。
 
-当前站点基于 Hugo 构建，部署在 GitHub Pages，自定义域名为 `blockblog.top`。
+当前站点基于 Hugo 构建，部署在 GitHub Pages，自定义域名为 `goclub.space`。
 
-- 站点地址：https://blockblog.top
-- 在线提交流程页：https://blockblog.top/docs/blog/%E6%8F%90%E4%BA%A4%E6%B5%81%E7%A8%8B/
+- 站点地址：https://goclub.space
+- 在线提交流程页：https://goclub.space/docs/blog/%E6%8F%90%E4%BA%A4%E6%B5%81%E7%A8%8B/
 - 仓库地址：https://github.com/LeoninCS/GoClub
 
 ## 如何提交内容

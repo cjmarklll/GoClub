@@ -8,8 +8,4 @@ bookCollapseSection: true
 
 这里用于集中整理值得反复查看的资料、课程、视频和学习索引。
 
-## 当前内容
-
-- [好书分享]({{< relref "/docs/resources/好书分享.md" >}})
-- [Agent 相关网站推荐]({{< relref "/docs/resources/Agent相关网站推荐.md" >}})
-- [网站分享]({{< relref "/docs/resources/网站分享.md" >}})
+这里的内容更适合长期收藏和阶段性回看，不局限于单次面试前的突击复习。

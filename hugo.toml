@@ -1,4 +1,4 @@
-baseURL = 'https://blockblog.top/'
+baseURL = 'https://goclub.space/'
 languageCode = 'zh-cn'
 title = 'GoClub'
 theme = 'hugo-book'

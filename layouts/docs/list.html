@@ -1,6 +1,25 @@
 {{ define "main" }}
+  {{ $summary := partial "goclub/lead-summary.html" . }}
+  {{ $content := partial "goclub/stripped-content.html" . }}
   <article class="markdown book-article">
-    {{- .Content -}}
+    <section class="page-lead">
+      <span class="page-lead-badge">栏目总览</span>
+      <div class="page-lead-title">{{ partial "docs/title" . }}</div>
+      {{ with $summary }}
+        <div class="page-lead-summary">{{ . }}</div>
+      {{ end }}
+      <div class="page-lead-meta">
+        <span class="page-lead-chip">内容数量：{{ len (where .Pages "Params.bookHidden" "ne" true) }}</span>
+        <span class="page-lead-chip">适合按卡片方式快速筛选</span>
+        {{ if partial "docs/toc-show" . }}
+          <span class="page-lead-chip">支持右侧目录导航</span>
+        {{ end }}
+      </div>
+    </section>
+
+    {{- $content | safeHTML -}}
+
+    {{ partial "goclub-section-cards.html" . }}
 
     {{ if eq .File.Path "docs/contributors/_index.md" }}
       {{ $contributors := hugo.Data.contributors }}

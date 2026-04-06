@@ -1,4 +1,7 @@
 # RabbitMQ
+
+这里主要整理消息队列相关的高频面试题，包括 RabbitMQ、自身机制以及和 Kafka、RocketMQ 的对比。
+
 - RabbitMQ、Kafka、RocketMQ对比
 - 消息队列的作用和使用场景
 - 如何保证消息队列的可靠性
